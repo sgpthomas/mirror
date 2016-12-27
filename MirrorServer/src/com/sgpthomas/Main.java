@@ -14,8 +14,8 @@ public class Main {
         String filename = readLine("Enter Filename");
         Encryptor encryptor = new Encryptor(filename);
 
-        Server server = new Server(encryptor);
-//        server.start();
+        Server server = new Server("192.168.0.26", 1111, encryptor);
+        server.start();
 
     }
 

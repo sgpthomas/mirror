@@ -23,10 +23,12 @@ public class Server extends Thread{
     private InputStream inputStream;
     private Scanner scanner;
 
-    public Server(Encryptor encryptor) {
+    public Server(String address, int port, Encryptor encryptor) {
+        this.address = address;
+        this.port = port;
         this.encryptor = encryptor;
 
-        initServerSocket();
+//        initServerSocket();
     }
 
     @Override
@@ -39,17 +41,17 @@ public class Server extends Thread{
         }
     }
 
-    private void initServerSocket() {
-        try {
-            serverSocket = new ServerSocket(0);
-            port = serverSocket.getLocalPort();
-
-            JmDNS jmdns = JmDNS.create();
-            System.out.println(port + " " + jmdns.);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+//    private void initServerSocket() {
+//        try {
+//            serverSocket = new ServerSocket(0);
+//            port = serverSocket.getLocalPort();
+//
+//            JmDNS jmdns = JmDNS.create();
+//            System.out.println(port + " " + jmdns.);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     private void connect() {
         try {
